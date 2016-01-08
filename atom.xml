@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-12-31T01:03:58.393Z</updated>
+  <updated>2016-01-08T07:49:21.922Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,23 +15,22 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <link href="http://yoursite.com/2015/12/31/hello-world/"/>
-    <id>http://yoursite.com/2015/12/31/hello-world/</id>
-    <published>2015-12-31T01:03:58.393Z</published>
-    <updated>2015-12-31T01:03:58.393Z</updated>
-    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+    <title></title>
+    <link href="http://yoursite.com/2016/01/08/HIVE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2016/01/08/HIVE学习笔记/</id>
+    <published>2016-01-08T08:08:09.720Z</published>
+    <updated>2016-01-08T07:49:21.922Z</updated>
+    <content type="html"><![CDATA[<h1 id="HIVE__u5B66_u4E60_u7B14_u8BB0"><a href="#HIVE__u5B66_u4E60_u7B14_u8BB0" class="headerlink" title="HIVE 学习笔记"></a>HIVE 学习笔记</h1><h2 id="Hive__u51FA_u73B0_u7684_u76EE_u7684"><a href="#Hive__u51FA_u73B0_u7684_u76EE_u7684" class="headerlink" title="Hive 出现的目的"></a>Hive 出现的目的</h2><p>数据基础架构转移到Hadoop上，而这个基础架构是基于传统关系型数据库和结构化查询语句（SQL）的，对于大量的SQL用户，Hive提供了HiveQL，来查询存储在hadoop集群中的数据</p>
+<h2 id="HIVE__u9650_u5236"><a href="#HIVE__u9650_u5236" class="headerlink" title="HIVE 限制"></a>HIVE 限制</h2><p>1、Hive不支持OLTP（联机事务处理）的关键功能：记录级别的更新、插入或者删除操作，更接近为一个OLAP（联机分析技术）</p>
+<p>2、因为Hadoop是一个面向批处理的系统，而MapReduce任务的启动过程需要消耗较长的时间，所以Hive查询延时比较严重</p>
+<h2 id="HIVE__u7279_u6027"><a href="#HIVE__u7279_u6027" class="headerlink" title="HIVE 特性"></a>HIVE 特性</h2><p>1、Hive本身不会生成MapReduce算法程序，相反，Hive通过XML文件驱动执行内置的、原生的Mapper和Reducer模块</p>
+<p>2、Hive不仅支持关系型数据库中大多数基本数据类型，同时也支持关系型数据库中很少出现的3种集合数据类型(STRUCT\MAP\ARRAY)，这样做的原因是Hive区别于其他数据库的完全控制，他将这些控制权转交给用户，以便更加容易地使用各种各样的工具来管理和处理数据</p>
+<p>3、Hive的创建功能增加了扩展，如创建时可以指定数据文件存储在什么位置，指定存储的格式等等</p>
+<p>4、Hive支持外部表的形式</p>
+<p>5、UNION ALL为倒序执行</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io]]>
+    <![CDATA[<h1 id="HIVE__u5B66_u4E60_u7B14_u8BB0"><a href="#HIVE__u5B66_u4E60_u7B14_u8BB0" class="headerlink" title="HIVE 学习笔记"></a>HIVE 学习笔记</h1><h2 i]]>
     </summary>
     
   </entry>

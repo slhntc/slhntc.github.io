@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-05-26T11:01:53.309Z</updated>
+  <updated>2016-07-30T02:47:47.338Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,42 +15,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://yoursite.com/2016/07/30/python%E7%AC%AC%E4%B8%89%E6%96%B9%E4%BE%9D%E8%B5%96%E5%8C%85%E5%88%B6%E4%BD%9C%E6%96%B9%E6%B3%95/"/>
-    <id>http://yoursite.com/2016/07/30/python第三方依赖包制作方法/</id>
-    <published>2016-07-30T02:26:33.054Z</published>
-    <updated>2016-05-26T11:01:53.309Z</updated>
-    <content type="html"><![CDATA[<h1 id="python__u7B2C_u4E09_u65B9_u4F9D_u8D56_u5305_u5236_u4F5C_u65B9_u6CD5"><a href="#python__u7B2C_u4E09_u65B9_u4F9D_u8D56_u5305_u5236_u4F5C_u65B9_u6CD5" class="headerlink" title="python 第三方依赖包制作方法"></a>python 第三方依赖包制作方法</h1><p>假定在ubuntu下</p>
-<p>1、 先安装setuptools</p>
-<pre><code>sudo apt-get install python-setuptools
-</code></pre><p>2、 启动脚本安装</p>
-<pre><code>wget http://peak.telecommunity.com/dist/ez_setup.py sudo python ez_setup.py
-</code></pre><p>3、 创建setup.py</p>
-<pre><code>在包的同级目录创建setup.py
-
-vim setup.py
-from setuptools import setup, find_packages
-    setup( name = &quot;sparkudf&quot;,
-              version = &quot;0.1&quot;,
-           packages = find_packages()
-          )
-</code></pre><p>4、 打成egg包</p>
-<pre><code>python setup.py bdist_egg    
-</code></pre><p>5、 安装</p>
-<pre><code>python setup.py install
-</code></pre>]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="python__u7B2C_u4E09_u65B9_u4F9D_u8D56_u5305_u5236_u4F5C_u65B9_u6CD5"><a href="#python__u7B2C_u4E09_u65B9_u4F9D_u8D56_u5305_u5236_u4F]]>
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://yoursite.com/2016/06/15/%E7%94%A8maven%E6%89%93%E8%87%AA%E5%AE%9A%E4%B9%89Jar%E5%8C%85%E7%9A%84POM%E6%96%87%E4%BB%B6%E5%86%99%E4%BD%9C/"/>
-    <id>http://yoursite.com/2016/06/15/用maven打自定义Jar包的POM文件写作/</id>
-    <published>2016-06-15T11:15:42.338Z</published>
-    <updated>2016-06-15T11:15:42.338Z</updated>
+    <title><![CDATA[用maven打自定义Jar包的POM文件写作]]></title>
+    <link href="http://yoursite.com/2016/07/30/%E7%94%A8maven%E6%89%93%E8%87%AA%E5%AE%9A%E4%B9%89Jar%E5%8C%85%E7%9A%84POM%E6%96%87%E4%BB%B6%E5%86%99%E4%BD%9C/"/>
+    <id>http://yoursite.com/2016/07/30/用maven打自定义Jar包的POM文件写作/</id>
+    <published>2016-07-30T02:47:47.338Z</published>
+    <updated>2016-07-30T02:47:47.338Z</updated>
     <content type="html"><![CDATA[<h1 id="u7528maven_u6253_u81EA_u5B9A_u4E49Jar_u5305_u7684POM_u6587_u4EF6_u5199_u4F5C"><a href="#u7528maven_u6253_u81EA_u5B9A_u4E49Jar_u5305_u7684POM_u6587_u4EF6_u5199_u4F5C" class="headerlink" title="用maven打自定义Jar包的POM文件写作"></a>用maven打自定义Jar包的POM文件写作</h1><h2 id="u63D2_u4EF6maven-compiler-plugin"><a href="#u63D2_u4EF6maven-compiler-plugin" class="headerlink" title="插件maven-compiler-plugin"></a>插件maven-compiler-plugin</h2><p>用于编译管理</p>
 <pre><code>&lt;plugin&gt;
     &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
@@ -102,11 +71,42 @@ from setuptools import setup, find_packages
   </entry>
   
   <entry>
-    <title></title>
-    <link href="http://yoursite.com/2016/06/03/python%20udf%20mock%E6%96%B9%E6%A1%88/"/>
-    <id>http://yoursite.com/2016/06/03/python udf mock方案/</id>
-    <published>2016-06-03T03:29:09.892Z</published>
-    <updated>2016-06-03T03:29:09.892Z</updated>
+    <title><![CDATA[python 第三方依赖包制作方法]]></title>
+    <link href="http://yoursite.com/2016/07/30/python%E7%AC%AC%E4%B8%89%E6%96%B9%E4%BE%9D%E8%B5%96%E5%8C%85%E5%88%B6%E4%BD%9C%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2016/07/30/python第三方依赖包制作方法/</id>
+    <published>2016-07-30T02:45:26.707Z</published>
+    <updated>2016-07-30T02:45:26.707Z</updated>
+    <content type="html"><![CDATA[<h1 id="python__u7B2C_u4E09_u65B9_u4F9D_u8D56_u5305_u5236_u4F5C_u65B9_u6CD5"><a href="#python__u7B2C_u4E09_u65B9_u4F9D_u8D56_u5305_u5236_u4F5C_u65B9_u6CD5" class="headerlink" title="python 第三方依赖包制作方法"></a>python 第三方依赖包制作方法</h1><p>假定在ubuntu下</p>
+<p>1、 先安装setuptools</p>
+<pre><code>sudo apt-get install python-setuptools
+</code></pre><p>2、 启动脚本安装</p>
+<pre><code>wget http://peak.telecommunity.com/dist/ez_setup.py sudo python ez_setup.py
+</code></pre><p>3、 创建setup.py</p>
+<pre><code>在包的同级目录创建setup.py
+
+vim setup.py
+from setuptools import setup, find_packages
+    setup( name = &quot;sparkudf&quot;,
+              version = &quot;0.1&quot;,
+           packages = find_packages()
+          )
+</code></pre><p>4、 打成egg包</p>
+<pre><code>python setup.py bdist_egg    
+</code></pre><p>5、 安装</p>
+<pre><code>python setup.py install
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="python__u7B2C_u4E09_u65B9_u4F9D_u8D56_u5305_u5236_u4F5C_u65B9_u6CD5"><a href="#python__u7B2C_u4E09_u65B9_u4F9D_u8D56_u5305_u5236_u4F]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Python UDF mock方案]]></title>
+    <link href="http://yoursite.com/2016/07/30/python%20udf%20mock%E6%96%B9%E6%A1%88/"/>
+    <id>http://yoursite.com/2016/07/30/python udf mock方案/</id>
+    <published>2016-07-30T02:45:08.099Z</published>
+    <updated>2016-07-30T02:45:08.099Z</updated>
     <content type="html"><![CDATA[<h1 id="Python_UDF_mock_u65B9_u6848"><a href="#Python_UDF_mock_u65B9_u6848" class="headerlink" title="Python UDF mock方案"></a>Python UDF mock方案</h1><h1 id="u76EE_u7684"><a href="#u76EE_u7684" class="headerlink" title="目的"></a>目的</h1><p>Hive实际上并没有设计python udf的功能，只是提供Transform关键字在SQL中调用脚本的功能，语法如下：</p>
 <pre><code>SELECT 
 TRANSFORM(keyword)
@@ -257,11 +257,11 @@ class UdafTest(BaseUDAF):
   </entry>
   
   <entry>
-    <title></title>
-    <link href="http://yoursite.com/2016/06/03/Jython-introduction/"/>
-    <id>http://yoursite.com/2016/06/03/Jython-introduction/</id>
-    <published>2016-06-03T02:05:09.583Z</published>
-    <updated>2016-06-02T09:23:43.806Z</updated>
+    <title><![CDATA[Jython使用介绍]]></title>
+    <link href="http://yoursite.com/2016/07/30/Jython-introduction/"/>
+    <id>http://yoursite.com/2016/07/30/Jython-introduction/</id>
+    <published>2016-07-30T02:43:20.497Z</published>
+    <updated>2016-07-30T02:43:20.497Z</updated>
     <content type="html"><![CDATA[<h1 id="Jython_u4F7F_u7528_u4ECB_u7ECD"><a href="#Jython_u4F7F_u7528_u4ECB_u7ECD" class="headerlink" title="Jython使用介绍"></a>Jython使用介绍</h1><h2 id="u7B80_u4ECB"><a href="#u7B80_u4ECB" class="headerlink" title="简介"></a>简介</h2><p>Jython是一个用Java语言写的Python解释器，运行于JVM中</p>
 <p>Jython与python语法一致，并且通过反射，可以无缝使用任何JAVA类</p>
 <h2 id="Jython_java__u5E38_u7528API"><a href="#Jython_java__u5E38_u7528API" class="headerlink" title="Jython java 常用API"></a>Jython java 常用API</h2><h3 id="java_u7A0B_u5E8F_u8BBF_u95EEJython_u7684_u5165_u53E3_uFF0C_u521B_u5EFA_u4E00_u4E2Apython_u89E3_u91CA_u5668"><a href="#java_u7A0B_u5E8F_u8BBF_u95EEJython_u7684_u5165_u53E3_uFF0C_u521B_u5EFA_u4E00_u4E2Apython_u89E3_u91CA_u5668" class="headerlink" title="java程序访问Jython的入口，创建一个python解释器"></a>java程序访问Jython的入口，创建一个python解释器</h3><pre><code>PythonInterpreter interpreter = new PythonInterpreter()

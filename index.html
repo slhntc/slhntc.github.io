@@ -160,70 +160,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-python第三方依赖包制作方法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/30/python第三方依赖包制作方法/" class="article-date">
-  	<time datetime="2016-07-30T02:26:33.054Z" itemprop="datePublished">2016-07-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="python__u7B2C_u4E09_u65B9_u4F9D_u8D56_u5305_u5236_u4F5C_u65B9_u6CD5"><a href="#python__u7B2C_u4E09_u65B9_u4F9D_u8D56_u5305_u5236_u4F5C_u65B9_u6CD5" class="headerlink" title="python 第三方依赖包制作方法"></a>python 第三方依赖包制作方法</h1><p>假定在ubuntu下</p>
-<p>1、 先安装setuptools</p>
-<pre><code>sudo apt-get install python-setuptools
-</code></pre><p>2、 启动脚本安装</p>
-<pre><code>wget http://peak.telecommunity.com/dist/ez_setup.py sudo python ez_setup.py
-</code></pre><p>3、 创建setup.py</p>
-<pre><code>在包的同级目录创建setup.py
-
-vim setup.py
-from setuptools import setup, find_packages
-    setup( name = &quot;sparkudf&quot;,
-              version = &quot;0.1&quot;,
-           packages = find_packages()
-          )
-</code></pre><p>4、 打成egg包</p>
-<pre><code>python setup.py bdist_egg    
-</code></pre><p>5、 安装</p>
-<pre><code>python setup.py install
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-用maven打自定义Jar包的POM文件写作" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/15/用maven打自定义Jar包的POM文件写作/" class="article-date">
-  	<time datetime="2016-06-15T11:15:42.338Z" itemprop="datePublished">2016-06-15</time>
+      <a href="/2016/07/30/用maven打自定义Jar包的POM文件写作/" class="article-date">
+  	<time datetime="2016-07-30T02:47:47.338Z" itemprop="datePublished">2016-07-30</time>
 </a>
     </div>
   
@@ -231,6 +172,17 @@ from setuptools import setup, find_packages
     
       <input type="hidden" class="isFancy" />
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/30/用maven打自定义Jar包的POM文件写作/">用maven打自定义Jar包的POM文件写作</a>
+    </h1>
+  
+
+      </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -303,11 +255,11 @@ from setuptools import setup, find_packages
 
 
   
-    <article id="post-python udf mock方案" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-python第三方依赖包制作方法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/03/python udf mock方案/" class="article-date">
-  	<time datetime="2016-06-03T03:29:09.892Z" itemprop="datePublished">2016-06-03</time>
+      <a href="/2016/07/30/python第三方依赖包制作方法/" class="article-date">
+  	<time datetime="2016-07-30T02:45:26.707Z" itemprop="datePublished">2016-07-30</time>
 </a>
     </div>
   
@@ -315,6 +267,87 @@ from setuptools import setup, find_packages
     
       <input type="hidden" class="isFancy" />
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/30/python第三方依赖包制作方法/">python 第三方依赖包制作方法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="python__u7B2C_u4E09_u65B9_u4F9D_u8D56_u5305_u5236_u4F5C_u65B9_u6CD5"><a href="#python__u7B2C_u4E09_u65B9_u4F9D_u8D56_u5305_u5236_u4F5C_u65B9_u6CD5" class="headerlink" title="python 第三方依赖包制作方法"></a>python 第三方依赖包制作方法</h1><p>假定在ubuntu下</p>
+<p>1、 先安装setuptools</p>
+<pre><code>sudo apt-get install python-setuptools
+</code></pre><p>2、 启动脚本安装</p>
+<pre><code>wget http://peak.telecommunity.com/dist/ez_setup.py sudo python ez_setup.py
+</code></pre><p>3、 创建setup.py</p>
+<pre><code>在包的同级目录创建setup.py
+
+vim setup.py
+from setuptools import setup, find_packages
+    setup( name = &quot;sparkudf&quot;,
+              version = &quot;0.1&quot;,
+           packages = find_packages()
+          )
+</code></pre><p>4、 打成egg包</p>
+<pre><code>python setup.py bdist_egg    
+</code></pre><p>5、 安装</p>
+<pre><code>python setup.py install
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-python udf mock方案" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/30/python udf mock方案/" class="article-date">
+  	<time datetime="2016-07-30T02:45:08.099Z" itemprop="datePublished">2016-07-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/30/python udf mock方案/">Python UDF mock方案</a>
+    </h1>
+  
+
+      </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -489,8 +522,8 @@ class UdafTest(BaseUDAF):
     <article id="post-Jython-introduction" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/03/Jython-introduction/" class="article-date">
-  	<time datetime="2016-06-03T02:05:09.583Z" itemprop="datePublished">2016-06-03</time>
+      <a href="/2016/07/30/Jython-introduction/" class="article-date">
+  	<time datetime="2016-07-30T02:43:20.497Z" itemprop="datePublished">2016-07-30</time>
 </a>
     </div>
   
@@ -498,6 +531,17 @@ class UdafTest(BaseUDAF):
     
       <input type="hidden" class="isFancy" />
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/30/Jython-introduction/">Jython使用介绍</a>
+    </h1>
+  
+
+      </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       

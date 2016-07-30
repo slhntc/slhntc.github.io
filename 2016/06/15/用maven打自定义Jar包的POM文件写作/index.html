@@ -4,24 +4,30 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>HIVE 学习笔记 | Chaac’s blog</title>
+  <title>Chaac’s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hive 出现的目的数据基础架构转移到Hadoop上，而这个基础架构是基于传统关系型数据库和结构化查询语句（SQL）的，对于大量的SQL用户，Hive提供了HiveQL，来查询存储在hadoop集群中的数据
-HIVE 限制1、Hive不支持OLTP（联机事务处理）的关键功能：记录级别的更新、插入或者删除操作，更接近为一个OLAP（联机分析技术）
-2、因为Hadoop是一个面向批处理的系统，而Map">
+  <meta name="description" content="用maven打自定义Jar包的POM文件写作插件maven-compiler-plugin用于编译管理
+&amp;lt;plugin&amp;gt;
+    &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;maven-compiler-plugin&amp;lt;/artifactId&amp;gt;
+    &amp;lt;ve">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HIVE 学习笔记">
-<meta property="og:url" content="http://yoursite.com/2016/01/08/HIVE学习笔记/index.html">
+<meta property="og:title" content="Chaac’s blog">
+<meta property="og:url" content="http://yoursite.com/2016/06/15/用maven打自定义Jar包的POM文件写作/index.html">
 <meta property="og:site_name" content="Chaac’s blog">
-<meta property="og:description" content="Hive 出现的目的数据基础架构转移到Hadoop上，而这个基础架构是基于传统关系型数据库和结构化查询语句（SQL）的，对于大量的SQL用户，Hive提供了HiveQL，来查询存储在hadoop集群中的数据
-HIVE 限制1、Hive不支持OLTP（联机事务处理）的关键功能：记录级别的更新、插入或者删除操作，更接近为一个OLAP（联机分析技术）
-2、因为Hadoop是一个面向批处理的系统，而Map">
-<meta property="og:updated_time" content="2016-01-08T08:53:06.210Z">
+<meta property="og:description" content="用maven打自定义Jar包的POM文件写作插件maven-compiler-plugin用于编译管理
+&amp;lt;plugin&amp;gt;
+    &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;maven-compiler-plugin&amp;lt;/artifactId&amp;gt;
+    &amp;lt;ve">
+<meta property="og:updated_time" content="2016-06-15T11:15:42.338Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HIVE 学习笔记">
-<meta name="twitter:description" content="Hive 出现的目的数据基础架构转移到Hadoop上，而这个基础架构是基于传统关系型数据库和结构化查询语句（SQL）的，对于大量的SQL用户，Hive提供了HiveQL，来查询存储在hadoop集群中的数据
-HIVE 限制1、Hive不支持OLTP（联机事务处理）的关键功能：记录级别的更新、插入或者删除操作，更接近为一个OLAP（联机分析技术）
-2、因为Hadoop是一个面向批处理的系统，而Map">
+<meta name="twitter:title" content="Chaac’s blog">
+<meta name="twitter:description" content="用maven打自定义Jar包的POM文件写作插件maven-compiler-plugin用于编译管理
+&amp;lt;plugin&amp;gt;
+    &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;maven-compiler-plugin&amp;lt;/artifactId&amp;gt;
+    &amp;lt;ve">
   
     <link rel="alternative" href="/atom.xml" title="Chaac’s blog" type="application/atom+xml">
   
@@ -165,11 +171,11 @@ HIVE 限制1、Hive不支持OLTP（联机事务处理）的关键功能：记录
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-HIVE学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-用maven打自定义Jar包的POM文件写作" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/08/HIVE学习笔记/" class="article-date">
-  	<time datetime="2016-01-08T08:53:06.210Z" itemprop="datePublished">2016-01-08</time>
+      <a href="/2016/06/15/用maven打自定义Jar包的POM文件写作/" class="article-date">
+  	<time datetime="2016-06-15T11:15:42.338Z" itemprop="datePublished">2016-06-15</time>
 </a>
     </div>
   
@@ -178,34 +184,51 @@ HIVE 限制1、Hive不支持OLTP（联机事务处理）的关键功能：记录
       <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      HIVE 学习笔记
-    </h1>
-  
-
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-        
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Hive__u51FA_u73B0_u7684_u76EE_u7684"><a href="#Hive__u51FA_u73B0_u7684_u76EE_u7684" class="headerlink" title="Hive 出现的目的"></a>Hive 出现的目的</h2><p>数据基础架构转移到Hadoop上，而这个基础架构是基于传统关系型数据库和结构化查询语句（SQL）的，对于大量的SQL用户，Hive提供了HiveQL，来查询存储在hadoop集群中的数据</p>
-<h2 id="HIVE__u9650_u5236"><a href="#HIVE__u9650_u5236" class="headerlink" title="HIVE 限制"></a>HIVE 限制</h2><p>1、Hive不支持OLTP（联机事务处理）的关键功能：记录级别的更新、插入或者删除操作，更接近为一个OLAP（联机分析技术）</p>
-<p>2、因为Hadoop是一个面向批处理的系统，而MapReduce任务的启动过程需要消耗较长的时间，所以Hive查询延时比较严重</p>
-<h2 id="HIVE__u7279_u6027"><a href="#HIVE__u7279_u6027" class="headerlink" title="HIVE 特性"></a>HIVE 特性</h2><p>1、Hive本身不会生成MapReduce算法程序，相反，Hive通过XML文件驱动执行内置的、原生的Mapper和Reducer模块</p>
-<p>2、Hive不仅支持关系型数据库中大多数基本数据类型，同时也支持关系型数据库中很少出现的3种集合数据类型(STRUCT\MAP\ARRAY)，这样做的原因是Hive区别于其他数据库的完全控制，他将这些控制权转交给用户，以便更加容易地使用各种各样的工具来管理和处理数据</p>
-<p>3、Hive的创建功能增加了扩展，如创建时可以指定数据文件存储在什么位置，指定存储的格式等等</p>
-<p>4、Hive支持外部表的形式</p>
-<p>5、UNION ALL为倒序执行</p>
+        <h1 id="u7528maven_u6253_u81EA_u5B9A_u4E49Jar_u5305_u7684POM_u6587_u4EF6_u5199_u4F5C"><a href="#u7528maven_u6253_u81EA_u5B9A_u4E49Jar_u5305_u7684POM_u6587_u4EF6_u5199_u4F5C" class="headerlink" title="用maven打自定义Jar包的POM文件写作"></a>用maven打自定义Jar包的POM文件写作</h1><h2 id="u63D2_u4EF6maven-compiler-plugin"><a href="#u63D2_u4EF6maven-compiler-plugin" class="headerlink" title="插件maven-compiler-plugin"></a>插件maven-compiler-plugin</h2><p>用于编译管理</p>
+<pre><code>&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+    &lt;version&gt;3.1&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;source&gt;1.7&lt;/source&gt;   &lt;!-- 源代码使用的开发版本 --&gt;
+        &lt;target&gt;1.7&lt;/target&gt;   &lt;!-- 需要生成的目标class文件的编译版本 --&gt;
+        &lt;encoding&gt;UTF-8&lt;/encoding&gt;   &lt;!-- 编码格式 --&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
+</code></pre><h2 id="u63D2_u4EF6maven-jar-plugin"><a href="#u63D2_u4EF6maven-jar-plugin" class="headerlink" title="插件maven-jar-plugin"></a>插件maven-jar-plugin</h2><p>用于打包Jar</p>
+<pre><code>&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;finalName&gt;BaseUDF&lt;/finalName&gt;  &lt;!-- Jar最后输出名称 --&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
+</code></pre><h2 id="u63D2_u4EF6maven-resources-plugin"><a href="#u63D2_u4EF6maven-resources-plugin" class="headerlink" title="插件maven-resources-plugin"></a>插件maven-resources-plugin</h2><pre><code>&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;id&gt;copy-python&lt;/id&gt;
+            &lt;phase&gt;validate&lt;/phase&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;copy-resources&lt;/goal&gt;
+            &lt;/goals&gt;
+            &lt;configuration&gt;
+                &lt;outputDirectory&gt;target/classes/python&lt;/outputDirectory&gt;
+                &lt;resources&gt;
+                    &lt;resource&gt;
+                        &lt;directory&gt;src/main/python&lt;/directory&gt;
+                    &lt;/resource&gt;
+                &lt;/resources&gt;
+            &lt;/configuration&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;
+</code></pre><h2 id="u63D2_u4EF6maven-assembly-plugin"><a href="#u63D2_u4EF6maven-assembly-plugin" class="headerlink" title="插件maven-assembly-plugin"></a>插件maven-assembly-plugin</h2><h2 id="u751F_u547D_u5468_u671F"><a href="#u751F_u547D_u5468_u671F" class="headerlink" title="生命周期"></a>生命周期</h2><p>生命周期分三套：clean、default、site</p>
+<p>clean又分成pre-clean、clean、post-clean，分别是clean前的动作、清除上次的构建、clean后的动作</p>
+<p>site</p>
 
       
     </div>
@@ -215,15 +238,20 @@ HIVE 限制1、Hive不支持OLTP（联机事务处理）的关键功能：记录
     
 <nav id="article-nav">
   
-    <a href="/2016/01/19/Kafka学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/30/python第三方依赖包制作方法/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Kafka 学习笔记
+          (no title)
         
       </div>
     </a>
   
+  
+    <a href="/2016/06/03/python udf mock方案/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -256,7 +284,7 @@ HIVE 限制1、Hive不支持OLTP（联机事务处理）的关键功能：记录
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="HIVE学习笔记" data-title="HIVE 学习笔记" data-url="http://yoursite.com/2016/01/08/HIVE学习笔记/"></div>
+	<div class="ds-thread" data-thread-key="用maven打自定义Jar包的POM文件写作" data-title="" data-url="http://yoursite.com/2016/06/15/用maven打自定义Jar包的POM文件写作/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

@@ -1,18 +1,478 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title><![CDATA[Chaac�� blog]]></title>
+  <title><![CDATA[Chaac’s blog]]></title>
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-01-08T08:53:06.210Z</updated>
+  <updated>2016-05-26T11:01:53.309Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
-    <name><![CDATA[������]]></name>
+    <name><![CDATA[青衫客]]></name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2016/07/30/python%E7%AC%AC%E4%B8%89%E6%96%B9%E4%BE%9D%E8%B5%96%E5%8C%85%E5%88%B6%E4%BD%9C%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2016/07/30/python第三方依赖包制作方法/</id>
+    <published>2016-07-30T02:26:33.054Z</published>
+    <updated>2016-05-26T11:01:53.309Z</updated>
+    <content type="html"><![CDATA[<h1 id="python__u7B2C_u4E09_u65B9_u4F9D_u8D56_u5305_u5236_u4F5C_u65B9_u6CD5"><a href="#python__u7B2C_u4E09_u65B9_u4F9D_u8D56_u5305_u5236_u4F5C_u65B9_u6CD5" class="headerlink" title="python 第三方依赖包制作方法"></a>python 第三方依赖包制作方法</h1><p>假定在ubuntu下</p>
+<p>1、 先安装setuptools</p>
+<pre><code>sudo apt-get install python-setuptools
+</code></pre><p>2、 启动脚本安装</p>
+<pre><code>wget http://peak.telecommunity.com/dist/ez_setup.py sudo python ez_setup.py
+</code></pre><p>3、 创建setup.py</p>
+<pre><code>在包的同级目录创建setup.py
+
+vim setup.py
+from setuptools import setup, find_packages
+    setup( name = &quot;sparkudf&quot;,
+              version = &quot;0.1&quot;,
+           packages = find_packages()
+          )
+</code></pre><p>4、 打成egg包</p>
+<pre><code>python setup.py bdist_egg    
+</code></pre><p>5、 安装</p>
+<pre><code>python setup.py install
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="python__u7B2C_u4E09_u65B9_u4F9D_u8D56_u5305_u5236_u4F5C_u65B9_u6CD5"><a href="#python__u7B2C_u4E09_u65B9_u4F9D_u8D56_u5305_u5236_u4F]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2016/06/15/%E7%94%A8maven%E6%89%93%E8%87%AA%E5%AE%9A%E4%B9%89Jar%E5%8C%85%E7%9A%84POM%E6%96%87%E4%BB%B6%E5%86%99%E4%BD%9C/"/>
+    <id>http://yoursite.com/2016/06/15/用maven打自定义Jar包的POM文件写作/</id>
+    <published>2016-06-15T11:15:42.338Z</published>
+    <updated>2016-06-15T11:15:42.338Z</updated>
+    <content type="html"><![CDATA[<h1 id="u7528maven_u6253_u81EA_u5B9A_u4E49Jar_u5305_u7684POM_u6587_u4EF6_u5199_u4F5C"><a href="#u7528maven_u6253_u81EA_u5B9A_u4E49Jar_u5305_u7684POM_u6587_u4EF6_u5199_u4F5C" class="headerlink" title="用maven打自定义Jar包的POM文件写作"></a>用maven打自定义Jar包的POM文件写作</h1><h2 id="u63D2_u4EF6maven-compiler-plugin"><a href="#u63D2_u4EF6maven-compiler-plugin" class="headerlink" title="插件maven-compiler-plugin"></a>插件maven-compiler-plugin</h2><p>用于编译管理</p>
+<pre><code>&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+    &lt;version&gt;3.1&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;source&gt;1.7&lt;/source&gt;   &lt;!-- 源代码使用的开发版本 --&gt;
+        &lt;target&gt;1.7&lt;/target&gt;   &lt;!-- 需要生成的目标class文件的编译版本 --&gt;
+        &lt;encoding&gt;UTF-8&lt;/encoding&gt;   &lt;!-- 编码格式 --&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
+</code></pre><h2 id="u63D2_u4EF6maven-jar-plugin"><a href="#u63D2_u4EF6maven-jar-plugin" class="headerlink" title="插件maven-jar-plugin"></a>插件maven-jar-plugin</h2><p>用于打包Jar</p>
+<pre><code>&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;finalName&gt;BaseUDF&lt;/finalName&gt;  &lt;!-- Jar最后输出名称 --&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
+</code></pre><h2 id="u63D2_u4EF6maven-resources-plugin"><a href="#u63D2_u4EF6maven-resources-plugin" class="headerlink" title="插件maven-resources-plugin"></a>插件maven-resources-plugin</h2><pre><code>&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;id&gt;copy-python&lt;/id&gt;
+            &lt;phase&gt;validate&lt;/phase&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;copy-resources&lt;/goal&gt;
+            &lt;/goals&gt;
+            &lt;configuration&gt;
+                &lt;outputDirectory&gt;target/classes/python&lt;/outputDirectory&gt;
+                &lt;resources&gt;
+                    &lt;resource&gt;
+                        &lt;directory&gt;src/main/python&lt;/directory&gt;
+                    &lt;/resource&gt;
+                &lt;/resources&gt;
+            &lt;/configuration&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;
+</code></pre><h2 id="u63D2_u4EF6maven-assembly-plugin"><a href="#u63D2_u4EF6maven-assembly-plugin" class="headerlink" title="插件maven-assembly-plugin"></a>插件maven-assembly-plugin</h2><h2 id="u751F_u547D_u5468_u671F"><a href="#u751F_u547D_u5468_u671F" class="headerlink" title="生命周期"></a>生命周期</h2><p>生命周期分三套：clean、default、site</p>
+<p>clean又分成pre-clean、clean、post-clean，分别是clean前的动作、清除上次的构建、clean后的动作</p>
+<p>site</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="u7528maven_u6253_u81EA_u5B9A_u4E49Jar_u5305_u7684POM_u6587_u4EF6_u5199_u4F5C"><a href="#u7528maven_u6253_u81EA_u5B9A_u4E49Jar_u5305_]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2016/06/03/python%20udf%20mock%E6%96%B9%E6%A1%88/"/>
+    <id>http://yoursite.com/2016/06/03/python udf mock方案/</id>
+    <published>2016-06-03T03:29:09.892Z</published>
+    <updated>2016-06-03T03:29:09.892Z</updated>
+    <content type="html"><![CDATA[<h1 id="Python_UDF_mock_u65B9_u6848"><a href="#Python_UDF_mock_u65B9_u6848" class="headerlink" title="Python UDF mock方案"></a>Python UDF mock方案</h1><h1 id="u76EE_u7684"><a href="#u76EE_u7684" class="headerlink" title="目的"></a>目的</h1><p>Hive实际上并没有设计python udf的功能，只是提供Transform关键字在SQL中调用脚本的功能，语法如下：</p>
+<pre><code>SELECT 
+TRANSFORM(keyword)
+USING &apos;python udf.py&apos;
+AS(keyword)
+FROM xxx
+WHERE dt=&apos;2013-09-25&apos;
+;
+</code></pre><p>看看这个python做了什么</p>
+<pre><code>udf.py
+import sys
+for line in sys.stdin:
+  line = line.strip()
+  print line
+</code></pre><p>实际上就是把表中的数据作为python的标准输入，然后捕获标准输出，这显然不能像java udf一样，满足基本的需求。</p>
+<p>因此，这里参考了odps python udf，提供了一套python UDF\UDAF\UDTF 的接口</p>
+<h1 id="u65B9_u6848"><a href="#u65B9_u6848" class="headerlink" title="方案"></a>方案</h1><p>1、参考odps python udf，提供了一套python UDF\UDAF\UDTF的接口。</p>
+<p>2、基于HIVE GenericUDF\GenericUDTF\AbstractGenericUDAFResolver java接口，编写一套通用的Spark UDF\UDTF\UDAF类。</p>
+<p>3、基于Jython，使我们自己编写的UDF\UDTF\UDAF类可以直接调用用户基于python接口所写的UDF python类。</p>
+<p>4、将用户写的python和我们自己编写的通用类打成一个jar包，通过java udf的方式最终去调用用户的python udf。</p>
+<p>*（后续计划）5、将我们自己编写的通用类融入Spark SQL的流程中，让用户只需要上传py文件即可使用。</p>
+<h1 id="u5B9E_u73B0_u7EC6_u8282"><a href="#u5B9E_u73B0_u7EC6_u8282" class="headerlink" title="实现细节"></a>实现细节</h1><h2 id="UDF"><a href="#UDF" class="headerlink" title="UDF"></a>UDF</h2><p>输入和输出为一对一的关系，即一行输入，一条输出</p>
+<p>python UDF example：改造字符串输出</p>
+<pre><code>from sparkudf import annotate
+from sparkudf import BaseUDF
+
+@annotate(&apos;string -&gt; string&apos;)
+class UdfTest(BaseUDF):
+
+       def evaluate(self, arg0):
+           return arg0 + &quot;.out&quot;
+</code></pre><p>python UDF的结构简单，因此在java UDF中只需要做4件事</p>
+<p>1、初始化jython的环境（设置python运行的python依赖路径和java依赖路径），导入该python文件</p>
+<p>2、创建一个udf的python对象</p>
+<p>3、在java udf的init方法中反射获取annotate中的入参和出参类型</p>
+<p>3、在java udf的evaluate方法中反射调用evaluate方法，并将python返回的结果进行转换为java udf可识别的类型</p>
+<p>使用jython打通java和python的基本方法代码如下：</p>
+<pre><code>public static PyObject execJythonWithObject(String pyFilePath,
+                                            String pyFunctionName,
+                                            Object... args) throws UDFArgumentException {
+    //Jython env init
+    String pyFileClass = getPyFileClassFromPath(pyFilePath);
+    PythonInterpreter interpreter = new PythonInterpreter();
+    PySystemState sys = interpreter.getSystemState();
+
+    //add python dependency and java dependency path
+    sys.path.add(getPythonSysPath());
+    sys.path.add(JAVA_LIB_PATH);
+
+    //add udf python file
+    interpreter.execfile(getInputStreamFromPyFilePath(pyFilePath));
+
+    //create object from python udf class
+    PyInstance instance = (PyInstance)interpreter.get(pyFileClass, PyClass.class).__call__();
+
+    //invoke python function
+    PyObject result = instance.invoke(pyFunctionName, convertInputObjectToPy(args));
+
+    //close
+    interpreter.close();
+
+    return result;
+}
+</code></pre><h2 id="UDTF"><a href="#UDTF" class="headerlink" title="UDTF"></a>UDTF</h2><p>输入和输出为一对多的关系，即一行输入，多条输出</p>
+<p>python UDTF example：将字符串按逗号分隔后输出</p>
+<pre><code>from sparkudf import annotate
+from sparkudf import BaseUDTF
+
+@annotate(&apos;string -&gt; string&apos;)
+class UdtfTest(BaseUDTF):
+
+    def process(self, arg):
+        props = arg.split(&apos;,&apos;)
+        for p in props:
+            self.forward(p)
+</code></pre><p>python UDTF的难点在于需要在python中调用java的forward方法</p>
+<p>解法</p>
+<p>1、在java中通过反射调用setJavaBaseUdf设置javaBaseUdf对象</p>
+<p>2、在python中即可直接调用java对象中的方法</p>
+<pre><code>class BaseUDTF():
+    javaBaseUdf = None
+
+    def forward(self, *args):
+        self.javaBaseUdf.udtfForward(args)
+        pass
+
+    def close(self):
+        pass
+
+    def setJavaBaseUdf(self, javaBaseUdf):
+        self.javaBaseUdf = javaBaseUdf
+
+    def __init__(self):
+        pass
+</code></pre><h2 id="UDAF"><a href="#UDAF" class="headerlink" title="UDAF"></a>UDAF</h2><p>自定义聚合函数，输入和输出为多对一的关系，即多行输入，一条输出</p>
+<p>python UDAF example：求平均数</p>
+<pre><code>from sparkudf import annotate
+from sparkudf import BaseUDAF
+
+@annotate(&apos;double-&gt;double&apos;)
+class UdafTest(BaseUDAF):
+
+    def new_buffer(self):
+        return [0, 0]
+
+    def iterate(self, buffer, number):
+        if number is not None:
+            buffer[0] += number
+            buffer[1] += 1
+
+    def merge(self, buffer, pbuffer):
+        buffer[0] += pbuffer[0]
+        buffer[1] += pbuffer[1]
+
+    def terminate(self, buffer):
+        if buffer[1] == 0:
+            return 0
+        return buffer[0] / buffer[1]
+</code></pre><p>UDAF的函数比较多，但对于java调python的话，可以参考UDF，基本一致</p>
+<p>主要难点：</p>
+<p>python是弱类型的，因此new_buffer返回的数据，在java中无法推断其类型</p>
+<p>解决方案：</p>
+<pre><code>@bufftype(&apos;list(double)&apos;)
+</code></pre><p>通过用户的定义可以获取buffer类型信息，目前为满足需求，暂时只支持list(object)、string、int、double、boolean等常见类型</p>
+<h2 id="u6253_u5305"><a href="#u6253_u5305" class="headerlink" title="打包"></a>打包</h2><p>1、打包路径和文件名称</p>
+<p>目前打包路径固定，java代码会去当前运行包的python路径下加载与其名字一致的py文件</p>
+<pre><code>src
++- main
+   +- java
+   |  \- UdfTest.java
+   |  \- UdtfTest.java
+   |  \- UdafTest.java
+   |  +- util
+   |     \- JythonFactory.java
+   |     \- PythonType.java
+   +- python
+      +- sparkudf
+      |  \- __init__.py
+      |  \- runtime.py
+      \- UdfTest.py
+      \- UdtfTest.py
+      \- UdafTest.py
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="Python_UDF_mock_u65B9_u6848"><a href="#Python_UDF_mock_u65B9_u6848" class="headerlink" title="Python UDF mock方案"></a>Python UDF mock]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2016/06/03/Jython-introduction/"/>
+    <id>http://yoursite.com/2016/06/03/Jython-introduction/</id>
+    <published>2016-06-03T02:05:09.583Z</published>
+    <updated>2016-06-02T09:23:43.806Z</updated>
+    <content type="html"><![CDATA[<h1 id="Jython_u4F7F_u7528_u4ECB_u7ECD"><a href="#Jython_u4F7F_u7528_u4ECB_u7ECD" class="headerlink" title="Jython使用介绍"></a>Jython使用介绍</h1><h2 id="u7B80_u4ECB"><a href="#u7B80_u4ECB" class="headerlink" title="简介"></a>简介</h2><p>Jython是一个用Java语言写的Python解释器，运行于JVM中</p>
+<p>Jython与python语法一致，并且通过反射，可以无缝使用任何JAVA类</p>
+<h2 id="Jython_java__u5E38_u7528API"><a href="#Jython_java__u5E38_u7528API" class="headerlink" title="Jython java 常用API"></a>Jython java 常用API</h2><h3 id="java_u7A0B_u5E8F_u8BBF_u95EEJython_u7684_u5165_u53E3_uFF0C_u521B_u5EFA_u4E00_u4E2Apython_u89E3_u91CA_u5668"><a href="#java_u7A0B_u5E8F_u8BBF_u95EEJython_u7684_u5165_u53E3_uFF0C_u521B_u5EFA_u4E00_u4E2Apython_u89E3_u91CA_u5668" class="headerlink" title="java程序访问Jython的入口，创建一个python解释器"></a>java程序访问Jython的入口，创建一个python解释器</h3><pre><code>PythonInterpreter interpreter = new PythonInterpreter()
+</code></pre><h3 id="u5728jython_u73AF_u5883_u4E2D_u6DFB_u52A0_u4F9D_u8D56"><a href="#u5728jython_u73AF_u5883_u4E2D_u6DFB_u52A0_u4F9D_u8D56" class="headerlink" title="在jython环境中添加依赖"></a>在jython环境中添加依赖</h3><pre><code>interpreter.getSystemState().path.add(path)
+</code></pre><h3 id="u5728jython_u6267_u884Cpython_u6587_u4EF6"><a href="#u5728jython_u6267_u884Cpython_u6587_u4EF6" class="headerlink" title="在jython执行python文件"></a>在jython执行python文件</h3><pre><code>interpreter.execfile(pathfile);
+</code></pre><h3 id="u83B7_u53D6python_u6587_u4EF6_u4E2D_u7684_u7C7B_u3001_u65B9_u6CD5_u3001_u53D8_u91CF_u7B49"><a href="#u83B7_u53D6python_u6587_u4EF6_u4E2D_u7684_u7C7B_u3001_u65B9_u6CD5_u3001_u53D8_u91CF_u7B49" class="headerlink" title="获取python文件中的类、方法、变量等"></a>获取python文件中的类、方法、变量等</h3><pre><code>interpreter.get()
+</code></pre><h3 id="u521B_u5EFA_u4E00_u4E2A_u7C7B_u5BF9_u8C61"><a href="#u521B_u5EFA_u4E00_u4E2A_u7C7B_u5BF9_u8C61" class="headerlink" title="创建一个类对象"></a>创建一个类对象</h3><pre><code>PyClass.__call__()
+</code></pre><h3 id="u53CD_u5C04_u7C7B_u5BF9_u8C61_u4E2D_u7684_u65B9_u6CD5"><a href="#u53CD_u5C04_u7C7B_u5BF9_u8C61_u4E2D_u7684_u65B9_u6CD5" class="headerlink" title="反射类对象中的方法"></a>反射类对象中的方法</h3><pre><code>PyInstance.invoke()
+</code></pre><h3 id="u76F4_u63A5_u6267_u884C_u8BED_u53E5"><a href="#u76F4_u63A5_u6267_u884C_u8BED_u53E5" class="headerlink" title="直接执行语句"></a>直接执行语句</h3><pre><code>interpreter.exec(&quot;print a&quot;); 
+</code></pre><h3 id="u8D4B_u503C"><a href="#u8D4B_u503C" class="headerlink" title="赋值"></a>赋值</h3><pre><code>interp.set(&quot;a&quot;, new PyInteger(42)); 
+</code></pre><h3 id="u5173_u95EDpython_u89E3_u91CA_u5668"><a href="#u5173_u95EDpython_u89E3_u91CA_u5668" class="headerlink" title="关闭python解释器"></a>关闭python解释器</h3><pre><code>interpreter.close();
+</code></pre><h2 id="Jython_java_api_u4F7F_u7528_u7684_u7B80_u5355_u7684_u4F8B_u5B50"><a href="#Jython_java_api_u4F7F_u7528_u7684_u7B80_u5355_u7684_u4F8B_u5B50" class="headerlink" title="Jython java api使用的简单的例子"></a>Jython java api使用的简单的例子</h2><p>udf.py</p>
+<pre><code>from sparkudf import annotate
+from sparkudf import BaseUDF
+
+@annotate(&apos;string -&gt; string&apos;)
+class UdfTest(BaseUDF):
+
+   def evaluate(self, arg0):
+       return arg0 + &quot;.out&quot;
+</code></pre><p>udf.java</p>
+<pre><code>public static PyObject execJythonWithObject(String pyFilePath,
+                                            String pyFunctionName,
+                                            Object... args) {
+    //Jython env init
+    String pyFileClass = getPyFileClassFromPath(pyFilePath);
+    PythonInterpreter interpreter = new PythonInterpreter();
+    PySystemState sys = interpreter.getSystemState();
+
+    //add python dependency and java dependency path
+    sys.path.add(getPythonSysPath());
+    sys.path.add(JAVA_LIB_PATH);
+
+    //add udf python file
+    interpreter.execfile(getInputStreamFromPyFilePath(pyFilePath));
+
+    //create object from python udf class
+    PyInstance instance = (PyInstance)interpreter.get(pyFileClass, PyClass.class).__call__();
+
+    //invoke python function
+    PyObject result = instance.invoke(pyFunctionName, convertInputObjectToPy(args));
+
+    //close
+    interpreter.close();
+
+    return result;
+}
+
+public static Object evaluate(Object arg0) {
+    return execJythonWithObject(PY_PATH, UDF_FUNCTION_NAME, arg0);;
+}
+
+public static void main(String[] args) {
+    System.out.print(evaluate(&quot;test&quot;));
+}
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="Jython_u4F7F_u7528_u4ECB_u7ECD"><a href="#Jython_u4F7F_u7528_u4ECB_u7ECD" class="headerlink" title="Jython使用介绍"></a>Jython使用介绍</h1><]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Docker学习笔记]]></title>
+    <link href="http://yoursite.com/2016/02/02/Docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2016/02/02/Docker学习笔记/</id>
+    <published>2016-02-02T07:24:11.859Z</published>
+    <updated>2016-02-02T07:24:11.859Z</updated>
+    <content type="html"><![CDATA[<h1 id="Docker_u76F8_u8F83VM_u7684_u4F18_u70B9"><a href="#Docker_u76F8_u8F83VM_u7684_u4F18_u70B9" class="headerlink" title="Docker相较VM的优点"></a>Docker相较VM的优点</h1><ol>
+<li>启动速度快，容器通常在一秒内就可以启动，而VM通常要更久</li>
+<li>资源利用率高，一台普通PC可以跑上千个容器，而VM则不行</li>
+<li>性能开销小，VM通常需要额外的CPU和内存来完成OS的功能，这一部分占据了额外的资源</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="Docker_u76F8_u8F83VM_u7684_u4F18_u70B9"><a href="#Docker_u76F8_u8F83VM_u7684_u4F18_u70B9" class="headerlink" title="Docker相较VM的优点"><]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Spark Streaming学习笔记]]></title>
+    <link href="http://yoursite.com/2016/01/20/Spark%20Streaming%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2016/01/20/Spark Streaming学习笔记/</id>
+    <published>2016-01-20T01:52:33.158Z</published>
+    <updated>2016-01-20T01:52:33.158Z</updated>
+    <content type="html"><![CDATA[<h1 id="u5B9A_u4E49"><a href="#u5B9A_u4E49" class="headerlink" title="定义"></a>定义</h1><p>Spark Streaming是一种构建在Spark上的实时计算框架，它扩展了Spark处理大规模流式数据的能力</p>
+<h1 id="u4F18_u52BF"><a href="#u4F18_u52BF" class="headerlink" title="优势"></a>优势</h1><ol>
+<li>能运行在100+的结点上，并达到秒级延迟。</li>
+<li>使用基于内存的Spark作为执行引擎，具有高效和容错的特性。</li>
+<li>能集成Spark的批处理和交互查询。</li>
+<li>为实现复杂的算法提供和批处理类似的简单接口。</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="u5B9A_u4E49"><a href="#u5B9A_u4E49" class="headerlink" title="定义"></a>定义</h1><p>Spark Streaming是一种构建在Spark上的实时计算框架，它扩展了Spark处理大规模流式数]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Kafka 学习笔记]]></title>
+    <link href="http://yoursite.com/2016/01/19/Kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2016/01/19/Kafka学习笔记/</id>
+    <published>2016-01-19T09:15:29.764Z</published>
+    <updated>2016-01-19T09:15:29.764Z</updated>
+    <content type="html"><![CDATA[<h2 id="u5B9A_u4E49"><a href="#u5B9A_u4E49" class="headerlink" title="定义"></a>定义</h2><p>Apcache Kafka是分布式发布-订阅消息系统</p>
+<h2 id="u5BF9_u6BD4"><a href="#u5BF9_u6BD4" class="headerlink" title="对比"></a>对比</h2><p>Kafka与传统消息系统相比，有以下不同：</p>
+<ol>
+<li>它被设计为一个分布式系统，易于向外扩展；</li>
+<li>它同时为发布和订阅提供高吞吐量；</li>
+<li>它支持多订阅者，当失败时能自动平衡消费者；</li>
+<li>它将消息持久化在磁盘，因此可用于批量消费，例如ETL，以及实时应用程序。</li>
+</ol>
+<p>Kafka与ODPS Datahub对比：</p>
+<p>。。。。</p>
+<h2 id="u67B6_u6784"><a href="#u67B6_u6784" class="headerlink" title="架构"></a>架构</h2><p>架构包括以下组件：</p>
+<ol>
+<li>话题（Topic）：消息流</li>
+<li>生产者（Producer）：发布消息到话题的对象</li>
+<li>消费者（Consumer）：可以订阅话题，可以消费已发布的消息</li>
+<li>Kafka集群或代理（Broker）：已发布的消息保存的服务器</li>
+</ol>
+<p>与传统迭代器不同，消息流迭代器永不停止。如果当前没有消息，迭代器将阻塞，直到有新的消息发布到该话题。</p>
+<p>同时支持点到点分发模型，即多个消费者同时消费队列中某个消息的单个副本。</p>
+<p>为了负载均衡，将话题分成多个分区。</p>
+<h2 id="Kafka_u5B58_u50A8"><a href="#Kafka_u5B58_u50A8" class="headerlink" title="Kafka存储"></a>Kafka存储</h2><p>消息通过日志中的逻辑偏移量来公开，比如有100条Message，它们的offset是从0到99，假设将数据文件分成5段，分布如下</p>
+<pre><code>Topic----partition1（目录）----offset0（分段文件0-19）
+                          ----offset20（分段文件20-39）
+                          ----offset40（分段文件40-59）
+                          ----offset60（分段文件60-79）
+                          ----offset80（分段文件80-99）
+     ----partition2（目录）....
+     ----partition3（目录）....
+     .....
+</code></pre><p>这样在查找指定offset的Message的时候，用二分查找就可以定位到该Message在哪个段中。</p>
+<p>每次生产者发布消息到一个分区，代理就将消息追加到最后一个段文件中。当发布的消息数量达到设定值或者经过一定的时间后，段文件真正写入磁盘中。写入完成后，消息公开给消费者。</p>
+<p>为了进一步提高查找效率，kafka为每个数据文件建立索引文件，通过相对偏移量和绝对位置更准确定位Message的位置。</p>
+<h2 id="Kafka_u4EE3_u7406"><a href="#Kafka_u4EE3_u7406" class="headerlink" title="Kafka代理"></a>Kafka代理</h2><p>Kafka本身是无状态的，这就要求消费者必须维护已消费的状态信息。</p>
+<ol>
+<li>消息删除：基于时间的保留策略</li>
+<li>消费者可以故意倒回到老的偏移量再次消费。这违反了队列的常规约定，但是是很常见的需求</li>
+</ol>
+<h2 id="Kafka_u7F16_u7A0B"><a href="#Kafka_u7F16_u7A0B" class="headerlink" title="Kafka编程"></a>Kafka编程</h2><h3 id="Producer_u7AEF"><a href="#Producer_u7AEF" class="headerlink" title="Producer端"></a>Producer端</h3><ol>
+<li><p>metadata.broker.list 默认值：无，必填</p>
+<p> 格式为host1:port1,host2:port2，这是一个broker列表，用于获得元数据(topics，partitions和replicas)，建立起来的socket连接用于发送实际数据，这个列表可以是broker的一个子集，或者一个VIP，指向broker的一个子集。</p>
+</li>
+<li><p>request.required.acks 默认值：0</p>
+<p> 用来控制一个produce请求怎样才能算完成，准确的说，是有多少broker必须已经提交数据到log文件，并向leader发送ack，可以设置如下的值：</p>
+<p> 0，意味着producer永远不会等待一个来自broker的ack，这就是0.7版本的行为。这个选项提供了最低的延迟，但是持久化的保证是最弱的，当server挂掉的时候会丢失一些数据。</p>
+<p> 1，意味着在leader replica已经接收到数据后，producer会得到一个ack。这个选项提供了更好的持久性，因为在server确认请求成功处理后，client才会返回。如果刚写到leader上，还没来得及复制leader就挂了，那么消息才可能会丢失。</p>
+<p> -1，意味着在所有的ISR都接收到数据后，producer才得到一个ack。这个选项提供了最好的持久性，只要还有一个replica存活，那么数据就不会丢失。</p>
+</li>
+<li><p>request.timeout.ms 默认值：10000</p>
+<p> 请求超时时间。</p>
+</li>
+<li><p>producer.type 默认值：sync</p>
+<p> 决定消息是否应在一个后台线程异步发送。合法的值为sync，表示异步发送；sync表示同步发送。设置为async则允许批量发送请求，这回带来更高的吞吐量，但是client的机器挂了的话会丢失还没有发送的数据。</p>
+</li>
+<li><p>serializer.class 默认值：kafka.serializer.DefaultEncoder</p>
+<p> 消息的序列化类，默认是的encoder处理一个byte[]，返回一个byte[]。</p>
+</li>
+<li><p>key.serializer.class 默认值：无</p>
+<p> key的序列化类，默认跟消息的序列化类一样。</p>
+</li>
+<li><p>partitioner.class 默认值：kafka.producer.DefaultPartitioner</p>
+<p> 用来把消息分到各个partition中，默认行为是对key进行hash。</p>
+</li>
+<li><p>compression.codec 默认值：none</p>
+<p> 允许指定压缩codec来对消息进行压缩，合法的值为：none，gzip，snappy。</p>
+</li>
+<li><p>compressed.topics 默认值：null</p>
+<p> 允许你指定特定的topic对其进行压缩。如果compression codec设置了除NoCompressionCodec以外的值，那么仅会对本选项指定的topic进行压缩。如果compression codec为NoCompressionCodec，那么压缩就不会启用。</p>
+</li>
+<li><p>message.send.max.retries 默认值：3</p>
+<p>如果producer发送消息失败了会自动重发，本选项指定了重发的次数。注意如果是非0值，那么可能会导致重复发送，就是说的确发送了消息，但是没有收到ack，那么就还会发一次。</p>
+</li>
+<li><p>retry.backoff.ms 默认值：100</p>
+<p>在每次重发之前，producer会刷新相关的topic的元数据，来看看是否选出了一个新leader。由于选举leader会花一些时间，此选项指定了在刷新元数据前等待的时间。</p>
+</li>
+<li><p>topic.metadata.refresh.interval.ms 默认值：600 * 1000</p>
+<p>当出现错误时(缺失partition，leader不可用等)，producer通常会从broker拉取最新的topic的元数据。它也会每隔一段时间轮询(默认是每隔10分钟)。如果设置了一个负数，那么只有当发生错误时才会刷新元数据，当然不推荐这样做。有一个重要的提示：只有在消息被发送后才会刷新，所以如果producer没有发送一个消息的话，则元数据永远不会被刷新。</p>
+</li>
+<li><p>queue.buffering.max.ms 默认值：5000</p>
+<p>当使用异步模式时，缓冲数据的最大时间。例如设为100的话，会每隔100毫秒把所有的消息批量发送。这会提高吞吐量，但是会增加消息的到达延时。</p>
+</li>
+<li><p>queue.buffering.max.messages 默认值：10000</p>
+<p>在异步模式下，producer端允许buffer的最大消息数量，如果producer无法尽快将消息发送给broker，从而导致消息在producer端大量沉积，如果消息的条数达到此配置值，将会导致producer端阻塞或者消息被抛弃。</p>
+</li>
+<li><p>queue.enqueue.timeout.ms 默认值：-1</p>
+<p>当消息在producer端沉积的条数达到 queue.buffering.max.meesages 时， 阻塞一定时间后，队列仍然没有enqueue(producer仍然没有发送出任何消息) 。 此时producer可以继续阻塞或者将消息抛弃，此timeout值用于控制 阻塞 的时间，如果值为-1 则 无阻塞超时限制，消息不会被抛弃；如果值为0 则立即清空队列，消息被抛弃。</p>
+</li>
+<li><p>batch.num.messages 默认值：200</p>
+<p>在异步模式下，一个batch发送的消息数量。producer会等待直到要发送的消息数量达到这个值，之后才会发送。但如果消息数量不够，达到queue.buffer.max.ms时也会直接发送。</p>
+</li>
+<li><p>send.buffer.bytes 默认值：100 * 1024</p>
+<p>socket的发送缓存大小。</p>
+</li>
+<li><p>client.id 默认值：””</p>
+<p>这是用户可自定义的client id，附加在每一条消息上来帮助跟踪。</p>
+</li>
+</ol>
+<h3 id="Consumer_u7AEF"><a href="#Consumer_u7AEF" class="headerlink" title="Consumer端"></a>Consumer端</h3><h2 id="u5BF9_u6BD4ODPS_Datahub"><a href="#u5BF9_u6BD4ODPS_Datahub" class="headerlink" title="对比ODPS Datahub"></a>对比ODPS Datahub</h2><p>ODPS Datahub以shareId来表示对一个表的并行通道。</p>
+<p>写入和订阅的基本单位为Pack，一个Pack由多条Record组成，同一个Pack中的数据必须具有相同的分区值。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="u5B9A_u4E49"><a href="#u5B9A_u4E49" class="headerlink" title="定义"></a>定义</h2><p>Apcache Kafka是分布式发布-订阅消息系统</p>
+<h2 id="u5BF9_u6BD4">]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[HIVE 学习笔记]]></title>

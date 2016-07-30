@@ -4,24 +4,33 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>HIVE 学习笔记 | Chaac’s blog</title>
+  <title>Spark Streaming学习笔记 | Chaac’s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hive 出现的目的数据基础架构转移到Hadoop上，而这个基础架构是基于传统关系型数据库和结构化查询语句（SQL）的，对于大量的SQL用户，Hive提供了HiveQL，来查询存储在hadoop集群中的数据
-HIVE 限制1、Hive不支持OLTP（联机事务处理）的关键功能：记录级别的更新、插入或者删除操作，更接近为一个OLAP（联机分析技术）
-2、因为Hadoop是一个面向批处理的系统，而Map">
+  <meta name="description" content="定义Spark Streaming是一种构建在Spark上的实时计算框架，它扩展了Spark处理大规模流式数据的能力
+优势
+能运行在100+的结点上，并达到秒级延迟。
+使用基于内存的Spark作为执行引擎，具有高效和容错的特性。
+能集成Spark的批处理和交互查询。
+为实现复杂的算法提供和批处理类似的简单接口。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HIVE 学习笔记">
-<meta property="og:url" content="http://yoursite.com/2016/01/08/HIVE学习笔记/index.html">
+<meta property="og:title" content="Spark Streaming学习笔记">
+<meta property="og:url" content="http://yoursite.com/2016/01/20/Spark Streaming学习笔记/index.html">
 <meta property="og:site_name" content="Chaac’s blog">
-<meta property="og:description" content="Hive 出现的目的数据基础架构转移到Hadoop上，而这个基础架构是基于传统关系型数据库和结构化查询语句（SQL）的，对于大量的SQL用户，Hive提供了HiveQL，来查询存储在hadoop集群中的数据
-HIVE 限制1、Hive不支持OLTP（联机事务处理）的关键功能：记录级别的更新、插入或者删除操作，更接近为一个OLAP（联机分析技术）
-2、因为Hadoop是一个面向批处理的系统，而Map">
-<meta property="og:updated_time" content="2016-01-08T08:53:06.210Z">
+<meta property="og:description" content="定义Spark Streaming是一种构建在Spark上的实时计算框架，它扩展了Spark处理大规模流式数据的能力
+优势
+能运行在100+的结点上，并达到秒级延迟。
+使用基于内存的Spark作为执行引擎，具有高效和容错的特性。
+能集成Spark的批处理和交互查询。
+为实现复杂的算法提供和批处理类似的简单接口。">
+<meta property="og:updated_time" content="2016-01-20T01:52:33.158Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HIVE 学习笔记">
-<meta name="twitter:description" content="Hive 出现的目的数据基础架构转移到Hadoop上，而这个基础架构是基于传统关系型数据库和结构化查询语句（SQL）的，对于大量的SQL用户，Hive提供了HiveQL，来查询存储在hadoop集群中的数据
-HIVE 限制1、Hive不支持OLTP（联机事务处理）的关键功能：记录级别的更新、插入或者删除操作，更接近为一个OLAP（联机分析技术）
-2、因为Hadoop是一个面向批处理的系统，而Map">
+<meta name="twitter:title" content="Spark Streaming学习笔记">
+<meta name="twitter:description" content="定义Spark Streaming是一种构建在Spark上的实时计算框架，它扩展了Spark处理大规模流式数据的能力
+优势
+能运行在100+的结点上，并达到秒级延迟。
+使用基于内存的Spark作为执行引擎，具有高效和容错的特性。
+能集成Spark的批处理和交互查询。
+为实现复杂的算法提供和批处理类似的简单接口。">
   
     <link rel="alternative" href="/atom.xml" title="Chaac’s blog" type="application/atom+xml">
   
@@ -165,11 +174,11 @@ HIVE 限制1、Hive不支持OLTP（联机事务处理）的关键功能：记录
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-HIVE学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Spark Streaming学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/08/HIVE学习笔记/" class="article-date">
-  	<time datetime="2016-01-08T08:53:06.210Z" itemprop="datePublished">2016-01-08</time>
+      <a href="/2016/01/20/Spark Streaming学习笔记/" class="article-date">
+  	<time datetime="2016-01-20T01:52:33.158Z" itemprop="datePublished">2016-01-20</time>
 </a>
     </div>
   
@@ -182,7 +191,7 @@ HIVE 限制1、Hive不支持OLTP（联机事务处理）的关键功能：记录
         
   
     <h1 class="article-title" itemprop="name">
-      HIVE 学习笔记
+      Spark Streaming学习笔记
     </h1>
   
 
@@ -198,14 +207,13 @@ HIVE 限制1、Hive不支持OLTP（联机事务处理）的关键功能：记录
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Hive__u51FA_u73B0_u7684_u76EE_u7684"><a href="#Hive__u51FA_u73B0_u7684_u76EE_u7684" class="headerlink" title="Hive 出现的目的"></a>Hive 出现的目的</h2><p>数据基础架构转移到Hadoop上，而这个基础架构是基于传统关系型数据库和结构化查询语句（SQL）的，对于大量的SQL用户，Hive提供了HiveQL，来查询存储在hadoop集群中的数据</p>
-<h2 id="HIVE__u9650_u5236"><a href="#HIVE__u9650_u5236" class="headerlink" title="HIVE 限制"></a>HIVE 限制</h2><p>1、Hive不支持OLTP（联机事务处理）的关键功能：记录级别的更新、插入或者删除操作，更接近为一个OLAP（联机分析技术）</p>
-<p>2、因为Hadoop是一个面向批处理的系统，而MapReduce任务的启动过程需要消耗较长的时间，所以Hive查询延时比较严重</p>
-<h2 id="HIVE__u7279_u6027"><a href="#HIVE__u7279_u6027" class="headerlink" title="HIVE 特性"></a>HIVE 特性</h2><p>1、Hive本身不会生成MapReduce算法程序，相反，Hive通过XML文件驱动执行内置的、原生的Mapper和Reducer模块</p>
-<p>2、Hive不仅支持关系型数据库中大多数基本数据类型，同时也支持关系型数据库中很少出现的3种集合数据类型(STRUCT\MAP\ARRAY)，这样做的原因是Hive区别于其他数据库的完全控制，他将这些控制权转交给用户，以便更加容易地使用各种各样的工具来管理和处理数据</p>
-<p>3、Hive的创建功能增加了扩展，如创建时可以指定数据文件存储在什么位置，指定存储的格式等等</p>
-<p>4、Hive支持外部表的形式</p>
-<p>5、UNION ALL为倒序执行</p>
+        <h1 id="u5B9A_u4E49"><a href="#u5B9A_u4E49" class="headerlink" title="定义"></a>定义</h1><p>Spark Streaming是一种构建在Spark上的实时计算框架，它扩展了Spark处理大规模流式数据的能力</p>
+<h1 id="u4F18_u52BF"><a href="#u4F18_u52BF" class="headerlink" title="优势"></a>优势</h1><ol>
+<li>能运行在100+的结点上，并达到秒级延迟。</li>
+<li>使用基于内存的Spark作为执行引擎，具有高效和容错的特性。</li>
+<li>能集成Spark的批处理和交互查询。</li>
+<li>为实现复杂的算法提供和批处理类似的简单接口。</li>
+</ol>
 
       
     </div>
@@ -215,15 +223,20 @@ HIVE 限制1、Hive不支持OLTP（联机事务处理）的关键功能：记录
     
 <nav id="article-nav">
   
-    <a href="/2016/01/19/Kafka学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/02/02/Docker学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Kafka 学习笔记
+          Docker学习笔记
         
       </div>
     </a>
   
+  
+    <a href="/2016/01/19/Kafka学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Kafka 学习笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -256,7 +269,7 @@ HIVE 限制1、Hive不支持OLTP（联机事务处理）的关键功能：记录
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="HIVE学习笔记" data-title="HIVE 学习笔记" data-url="http://yoursite.com/2016/01/08/HIVE学习笔记/"></div>
+	<div class="ds-thread" data-thread-key="Spark Streaming学习笔记" data-title="Spark Streaming学习笔记" data-url="http://yoursite.com/2016/01/20/Spark Streaming学习笔记/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
